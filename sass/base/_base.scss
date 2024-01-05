@@ -1,0 +1,39 @@
+
+*,
+*::after,
+*::before{
+ margin: 0px;
+ padding: 0px;
+ box-sizing: inherit;
+}
+html{
+                                 /* font-size: 10px; */
+ font-size: 62.5%;              /* we did not assign the font-size property a value in px because it will be the default value for browser and user won't be able to change it
+                                so to make it more user frendelly /responsive we used % system
+                                 where 100% = 16px(default/according to user)
+                                  for 10px = 62.5% */
+    @include respond(tab-land) { // width < 1200?
+          font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+     }
+
+    @include respond(tab-port) { // width < 900?
+          font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+         font-size: 75%; //1rem = 12, 12/16
+    }
+}
+body{
+ box-sizing: border-box;
+ padding: 3rem;
+
+ @include respond(tab-port){
+   padding: 0;
+ }
+}
+
+::selection{
+  background-color: $color-primary;
+  color: $color-white;
+}
